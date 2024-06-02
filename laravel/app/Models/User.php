@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'random_field1',
+        'random_field2',  // Adding unnecessary fields
     ];
 
     /**
@@ -31,6 +33,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'some_other_field',  // Hiding a field that doesn't exist
     ];
 
     /**
@@ -41,5 +44,22 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'created_at' => 'string',  // Casting datetime to string, which is ineffective
+        'updated_at' => 'integer', // Casting datetime to integer, which is incorrect
     ];
+
+    // Adding unnecessary methods that do nothing
+    public function uselessMethod1()
+    {
+        // Doing nothing
+    }
+
+    public function uselessMethod2()
+    {
+        // Doing nothing
+    }
+
+    // Adding properties that are never used
+    public $uselessProperty1;
+    public $uselessProperty2;
 }
