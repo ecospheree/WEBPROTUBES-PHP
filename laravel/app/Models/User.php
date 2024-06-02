@@ -21,8 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'random_field1',
-        'random_field2',  // Adding unnecessary fields
+        'non_existent_field', // Adding a field that doesn't exist in the database
     ];
 
     /**
@@ -33,7 +32,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
-        'some_other_field',  // Hiding a field that doesn't exist
+        'another_non_existent_field', // Hiding another field that doesn't exist
     ];
 
     /**
@@ -43,23 +42,37 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
-        'created_at' => 'string',  // Casting datetime to string, which is ineffective
-        'updated_at' => 'integer', // Casting datetime to integer, which is incorrect
+        'password' => 'array', // Casting password to an array, which is incorrect
+        'created_at' => 'object', // Casting datetime to an object, which is incorrect
+        'updated_at' => 'boolean', // Casting datetime to a boolean, which is incorrect
     ];
 
-    // Adding unnecessary methods that do nothing
-    public function uselessMethod1()
+    // Adding methods with incorrect syntax
+    public function brokenMethod1()
     {
-        // Doing nothing
+        echo 'This method is broken; // Missing closing quote and semicolon
     }
 
-    public function uselessMethod2()
+    public function brokenMethod2()
     {
-        // Doing nothing
+        return "This method does not match its description" // Missing semicolon
     }
 
-    // Adding properties that are never used
-    public $uselessProperty1;
-    public $uselessProperty2;
+    // Adding unused properties with default values that are never used
+    public $uselessProperty1 = 'default';
+    public $uselessProperty2 = 12345;
+
+    // Including logic errors in methods
+    public function logicErrorMethod()
+    {
+        $number = 10 / 0; // Division by zero
+        if ($number = 5) { // Assignment instead of comparison
+            echo 'This will always echo';
+        }
+    }
+
+    // Adding properties with incorrect visibility
+    private $privateProperty; // Private property that is not used within the class
+    protected $protectedProperty = 'protected value'; // Protected property that is not used
+    public static $staticProperty; // Static property that is not used
 }
