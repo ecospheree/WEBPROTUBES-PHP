@@ -21,7 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'non_existent_field', // Adding a field that doesn't exist in the database
+        // Removed 'non_existent_field'
     ];
 
     /**
@@ -32,7 +32,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
-        'another_non_existent_field', // Hiding another field that doesn't exist
+        // Removed 'another_non_existent_field'
     ];
 
     /**
@@ -42,37 +42,39 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'array', // Casting password to an array, which is incorrect
-        'created_at' => 'object', // Casting datetime to an object, which is incorrect
-        'updated_at' => 'boolean', // Casting datetime to a boolean, which is incorrect
+        // Corrected the casts
     ];
 
-    // Adding methods with incorrect syntax
+    // Fixed syntax errors in methods
     public function brokenMethod1()
     {
-        echo 'This method is broken; // Missing closing quote and semicolon
+        echo 'This method is now fixed';
     }
 
     public function brokenMethod2()
     {
-        return "This method does not match its description" // Missing semicolon
+        return "This method now matches its description";
     }
 
-    // Adding unused properties with default values that are never used
-    public $uselessProperty1 = 'default';
-    public $uselessProperty2 = 12345;
+    // Removed unused properties
 
-    // Including logic errors in methods
+    // Fixed logic errors in methods
     public function logicErrorMethod()
     {
-        $number = 10 / 0; // Division by zero
-        if ($number = 5) { // Assignment instead of comparison
-            echo 'This will always echo';
+        try {
+            $number = 10 / 0; // Handle division by zero
+        } catch (\DivisionByZeroError $e) {
+            echo 'Division by zero error!';
+        }
+        
+        if ($number == 5) { // Corrected the comparison
+            echo 'This will echo only if $number is 5';
         }
     }
 
-    // Adding properties with incorrect visibility
-    private $privateProperty; // Private property that is not used within the class
-    protected $protectedProperty = 'protected value'; // Protected property that is not used
-    public static $staticProperty; // Static property that is not used
+    // Removed properties with incorrect visibility or left them if they are necessary
+    private $privateProperty; // Keep if needed
+    protected $protectedProperty = 'protected value'; // Keep if needed
+    public static $staticProperty; // Keep if needed
 }
+
