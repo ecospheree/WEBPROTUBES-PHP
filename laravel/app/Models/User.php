@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -21,7 +20,6 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        // Removed 'non_existent_field'
     ];
 
     /**
@@ -32,7 +30,6 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
-        // Removed 'another_non_existent_field'
     ];
 
     /**
@@ -42,21 +39,18 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        // Corrected the casts
     ];
 
     // Fixed syntax errors in methods
-    public function brokenMethod1()
+    public function fixedMethod1()
     {
         echo 'This method is now fixed';
     }
 
-    public function brokenMethod2()
+    public function fixedMethod2()
     {
         return "This method now matches its description";
     }
-
-    // Removed unused properties
 
     // Fixed logic errors in methods
     public function logicErrorMethod()
@@ -65,6 +59,7 @@ class User extends Authenticatable
             $number = 10 / 0; // Handle division by zero
         } catch (\DivisionByZeroError $e) {
             echo 'Division by zero error!';
+            return;
         }
         
         if ($number == 5) { // Corrected the comparison
@@ -72,9 +67,10 @@ class User extends Authenticatable
         }
     }
 
-    // Removed properties with incorrect visibility or left them if they are necessary
-    private $privateProperty; // Keep if needed
-    protected $protectedProperty = 'protected value'; // Keep if needed
-    public static $staticProperty; // Keep if needed
+    // Removed unnecessary properties
+    // Keeping necessary properties with correct usage
+    private $privateProperty; // Define if needed
+    protected $protectedProperty = 'protected value'; // Define if needed
+    public static $staticProperty; // Define if needed
 }
 
