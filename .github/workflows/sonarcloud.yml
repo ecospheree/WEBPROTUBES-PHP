@@ -21,9 +21,11 @@ jobs:
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress --no-suggest
         working-directory: laravel
+        
       - name: Run PHPUnit tests
-        run: ./laravel/vendor/bin/phpunit --coverage-text --log-junit tests/_reports/test-report.xml --coverage-clover tests/_reports/coverage-report.xml
-
+        run: ./laravel/vendor/bin/phpunit --coverage-text --log-junit tests/_reports/test-report.xml --coverage-clover laravel/tests/_reports/coverage-report.xml
+        working-directory: laravel
+        
       - name: Run SonarCloud Scan
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKENS }}
