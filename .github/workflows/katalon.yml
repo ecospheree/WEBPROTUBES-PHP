@@ -1,0 +1,46 @@
+name: Katalon Studio Integration
+
+on:
+  push:
+    branches: [ master ]  # Replace with your desired branches (e.g., main)
+  pull_request:
+    branches: [ master ]  # Replace with your desired branches (e.g., main)
+
+jobs:
+  test:
+    runs-on: windows-latest  # Consider using a runner with Katalon Studio pre-installed
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2.1
+
+      - name: Install Katalon Studio (if not pre-installed)
+        # Uncomment and configure if Katalon Studio is not pre-installed on the runner
+        # uses: insert-katalon-studio-installer-action-here  # Replace with the appropriate action
+        # with:
+        #   version: '7.9.1'  # Replace with your desired version
+
+      - name: Use a Katalon Studio project from a private repository (optional)
+        # Uncomment and configure if using a private Katalon Studio project
+        # uses: actions/checkout@v2  # Replace with the appropriate action for private repositories
+        # with:
+        #   repository: 'your-organization/your-katalon-project-repo'
+        #   ref: 'main'  # Replace with the desired branch
+        #   path: 'katalon-project'  # Optional path to store the downloaded project
+
+      - name: Use a Katalon Studio project from the current repository
+        # Use this step if the Katalon Studio project is in the same repository
+        uses: kopiandcode/download-artifact@v2
+        with:
+          name: katalon-studio-project  # Replace with the artifact name containing the project
+
+      - name: Increase Katalon Studio JVM memory (optional)
+        run: set KATO_TESTDATA_PROVIDER=LOCAL && set KATO_MAX_MEM="-Xmx4096m"  # Adjust memory as needed
+
+      - name: Run Katalon Studio tests
+        uses: katalon-studio/katalon-studio-github-action@v2
+        with:
+          version: '7.9.1'  # Replace with your desired version
+          # projectPath: '${{ github.workspace }}'  # Use this if project is in the repository
+          projectPath: 'path/to/your/katalon/project'  # Replace with the project path if downloaded from an artifact
+          args: '-noSplash -retry=0 -testSuiteCollectionPath="Test Suites/YourTestSuiteCollection" -apiKey=${{ secrets.KATALON_API_KEY }} --config -webui.autoUpdateDrivers=true'
+
