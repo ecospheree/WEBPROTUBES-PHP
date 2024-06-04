@@ -20,7 +20,7 @@ jobs:
         run: composer install --prefer-dist --no-progress --no-suggest
 
       - name: Run PHPUnit tests
-        run: .laravel/vendor/bin/phpunit --coverage-text --log-junit tests/_reports/test-report.xml --coverage-clover tests/_reports/coverage-report.xml
+        run: ./laravel/vendor/bin/phpunit --coverage-text --log-junit tests/_reports/test-report.xml --coverage-clover tests/_reports/coverage-report.xml
 
       - name: Run SonarCloud Scan
         env:
