@@ -21,7 +21,7 @@
             <input type="hidden" name="_method" value="{{ $method }}"/>
             <div class="row mb-3">
                 <div class="col-md-12">
-                    <h6 class="form-label text-start mb-3 mt-3">Upload Foto</h6>
+                    <h6 class="form-label text-start mb-3 mt-3">Upload</h6>
                     <div class="border p-2">
                         <center>
                             <label for="upload" style="cursor: pointer;">

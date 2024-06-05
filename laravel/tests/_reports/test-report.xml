@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="D:\KULIAH 6\Konfigurasi\WEBPROCOBA\WEBPROTUBES-PHP\laravel\phpunit.xml" tests="2" assertions="2" errors="0" failures="0" skipped="0" time="0.082186">
-    <testsuite name="Unit" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.010103">
-      <testsuite name="Tests\Unit\ExampleTest" file="D:\KULIAH 6\Konfigurasi\WEBPROCOBA\WEBPROTUBES-PHP\laravel\tests\Unit\ExampleTest.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.010103">
-        <testcase name="test_that_true_is_true" file="D:\KULIAH 6\Konfigurasi\WEBPROCOBA\WEBPROTUBES-PHP\laravel\tests\Unit\ExampleTest.php" line="12" class="Tests\Unit\ExampleTest" classname="Tests.Unit.ExampleTest" assertions="1" time="0.010103"/>
+  <testsuite name="D:\KULIAH 6\Konfigurasi\WEBPROCOBA\WEBPROTUBES-PHP\laravel\phpunit.xml" tests="2" assertions="2" errors="0" failures="0" skipped="0" time="0.078270">
+    <testsuite name="Unit" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.009796">
+      <testsuite name="Tests\Unit\ExampleTest" file="D:\KULIAH 6\Konfigurasi\WEBPROCOBA\WEBPROTUBES-PHP\laravel\tests\Unit\ExampleTest.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.009796">
+        <testcase name="test_that_true_is_true" file="D:\KULIAH 6\Konfigurasi\WEBPROCOBA\WEBPROTUBES-PHP\laravel\tests\Unit\ExampleTest.php" line="12" class="Tests\Unit\ExampleTest" classname="Tests.Unit.ExampleTest" assertions="1" time="0.009796"/>
       </testsuite>
     </testsuite>
-    <testsuite name="Feature" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.072083">
-      <testsuite name="Tests\Feature\ExampleTest" file="D:\KULIAH 6\Konfigurasi\WEBPROCOBA\WEBPROTUBES-PHP\laravel\tests\Feature\ExampleTest.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.072083">
-        <testcase name="test_the_application_returns_a_successful_response" file="D:\KULIAH 6\Konfigurasi\WEBPROCOBA\WEBPROTUBES-PHP\laravel\tests\Feature\ExampleTest.php" line="13" class="Tests\Feature\ExampleTest" classname="Tests.Feature.ExampleTest" assertions="1" time="0.072083"/>
+    <testsuite name="Feature" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.068475">
+      <testsuite name="Tests\Feature\ExampleTest" file="D:\KULIAH 6\Konfigurasi\WEBPROCOBA\WEBPROTUBES-PHP\laravel\tests\Feature\ExampleTest.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.068475">
+        <testcase name="test_the_application_returns_a_successful_response" file="D:\KULIAH 6\Konfigurasi\WEBPROCOBA\WEBPROTUBES-PHP\laravel\tests\Feature\ExampleTest.php" line="13" class="Tests\Feature\ExampleTest" classname="Tests.Feature.ExampleTest" assertions="1" time="0.068475"/>
       </testsuite>
     </testsuite>
   </testsuite>
