@@ -1,41 +1,34 @@
-name: SonarCloud
+name: SonarCloud analysis
+
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
   pull_request:
+    branches: [ "main" ]
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+
+permissions:
+  pull-requests: read
+    
+
 jobs:
   sonarcloud:
+    name: SonarCloud
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Set up PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.1'
-
-      - name: Install dependencies
-        run: composer install --prefer-dist --no-progress --no-suggest
-        working-directory: laravel
-
-      - name: Run PHPUnit tests
-        run: ./vendor/bin/phpunit --coverage-text --log-junit tests/_reports/test-report.xml --coverage-clover tests/_reports/coverage-report.xml
-        working-directory: laravel
-
-      - name: Run SonarCloud Scan
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v2.2.0
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKENS }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: |
-          sonar-scanner \
-            -Dsonar.projectKey=ecospheree_WEBPROTUBES-PHP \
-            -Dsonar.organization=ecospheree \
-            -Dsonar.sources=app \
-            -Dsonar.language=php \
-            -Dsonar.tests=tests \
-            -Dsonar.php.tests.reportPath=tests/_reports/test-report.xml \
-            -Dsonar.php.coverage.reportPaths=tests/_reports/coverage-report.xml \
-            -Dsonar.exclusions=vendor/**,storage/**,public/**,resources/views/**,bootstrap/** \
-            -Dsonar.sourceEncoding=UTF-8
+        with:
+          args: >
+            -Dsonar.projectKey=IA7308_WEBPROTUBES
+            -Dsonar.organization=ia7308
+            -Dsonar.sources=./laravel
+          projectBaseDir: .
